@@ -12,6 +12,6 @@ Don't forget to run ```:BundleInstall```.
 Credit
 ======
 
-I didn't actually write any of the syntax highlighting.  It was downloaded from from http://www.yang-central.org/twiki/pub/Main/YangTools/yang.vim.
+I didn't actually write any of the syntax highlighting.  It was downloaded from http://www.yang-central.org/twiki/pub/Main/YangTools/yang.vim.
 
 If you notice a new version or have a change, let me know.
