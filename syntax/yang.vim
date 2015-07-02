@@ -32,15 +32,16 @@ syn match yangIdentifier /\c\<\h\+[A-Za-z0-9_-]*\>/
 syn match yangBadIdentifier /\c\<xml\(\h\+[A-Za-z0-9_-]\)*\>/
 
 " statement keywords
-syn keyword yangStatement anyxml argument augment base belongs-to bit case choice
-syn keyword yangStatement config contact container default description enum error-app-tag error-message
+syn keyword yangStatement anyxml argument augment base belongs-to bit choice
+syn keyword yangStatement config contact default description enum error-app-tag error-message
 syn keyword yangStatement extension deviation deviate feature fraction-digits grouping identity
 syn keyword yangStatement import include input key leaf leaf-list length
 syn keyword yangStatement list mandatory max-elements min-elements module must namespace
 syn keyword yangStatement notification ordered-by organization output path pattern position
-syn keyword yangStatement prefix presence range reference refine require-instance revision
-syn keyword yangStatement revision-date rpc status submodule type typedef unique
-syn keyword yangStatement units uses value when yang-version yin-element 
+syn keyword yangStatement presence range reference refine require-instance revision
+syn keyword yangStatement revision-date rpc status submodule type unique
+syn keyword yangStatement units value when yang-version yin-element 
+syn keyword yangStatement case container leaf prefix typedef uses nextgroup=yangIdentifier skipwhite
 
 " other keywords
 syn keyword yangOther add current delete deprecated max min not-supported
