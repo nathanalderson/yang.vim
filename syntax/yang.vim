@@ -88,8 +88,8 @@ hi def link yangType Type
 hi def link yangKeyword Keyword
 hi def link yangStatement Statement
 hi def link yangModule Type
-hi def link yangDateArg Number
-hi def link yangLengthArg Number
+hi def link yangDateArg Special
+hi def link yangLengthArg Special
 
 let b:current_syntax = "yang"
 
