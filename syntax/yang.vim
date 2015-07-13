@@ -85,11 +85,11 @@ hi def link yangConditional Conditional
 hi def link yangType Type
 
 " arbitrary mappings
-hi def link yangKeyword Type
-hi def link yangStatement Type
+hi def link yangKeyword Keyword
+hi def link yangStatement Statement
 hi def link yangModule Type
-hi def link yangDateArg Conditional
-hi def link yangLengthArg Conditional
+hi def link yangDateArg Special
+hi def link yangLengthArg Special
 
 let b:current_syntax = "yang"
 
