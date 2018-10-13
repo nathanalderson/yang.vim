@@ -93,4 +93,7 @@ highlight def link yangModule Type
 highlight def link yangDateArg Special
 highlight def link yangLengthArg Special
 
+" synchronize
+syntax sync match yangSync grouphere NONE '}$'
+
 let b:current_syntax = 'yang'
