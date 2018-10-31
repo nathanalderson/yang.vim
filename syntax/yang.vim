@@ -1,15 +1,15 @@
 " Vim syntax file
-" Language: 	YANG
-" Remark:		RFC 6020 http://tools.ietf.org/html/rfc6020
-" Version: 		1
-" Last Change:	2011 Sep 28
-" Maintainer: 	Matt Parker <mparker@computer.org>
+" Language:     YANG
+" Remark:       RFC 6020 http://tools.ietf.org/html/rfc6020
+" Version:      1
+" Last Change:  2011 Sep 28
+" Maintainer:   Matt Parker <mparker@computer.org>
 "------------------------------------------------------------------
 
 if v:version < 600
-	syntax clear
+    syntax clear
 elseif exists('b:current_syntax')
-	finish
+    finish
 endif
 
 " yang has keywords with a '-' in them
@@ -70,7 +70,7 @@ syntax match yangLengthArg /"\(\d\+\|min\)\s*\.\.\s*\(\d\+\|max\)"/
 
 " numbers
 syntax match yangNumber /\<[+-]\=\d\+\>/
-syntax match yangNumber	"\<0x\x\+\>"
+syntax match yangNumber "\<0x\x\+\>"
 
 
 "-------------------------------------
