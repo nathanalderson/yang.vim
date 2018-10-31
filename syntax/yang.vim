@@ -85,10 +85,10 @@ highlight def link yangNumber Number
 highlight def link yangBoolean Boolean
 highlight def link yangConditional Conditional
 highlight def link yangType Type
-
-" arbitrary mappings
 highlight def link yangKeyword Keyword
 highlight def link yangStatement Statement
+
+" arbitrary mappings
 highlight def link yangModule Type
 highlight def link yangDateArg Special
 highlight def link yangLengthArg Special
