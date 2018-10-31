@@ -1,9 +1,7 @@
 " Vim syntax file
 " Language:     YANG
 " Remark:       RFC 6020 http://tools.ietf.org/html/rfc6020
-" Version:      1
-" Last Change:  2011 Sep 28
-" Maintainer:   Matt Parker <mparker@computer.org>
+" Author:       Matt Parker <mparker@computer.org>
 "------------------------------------------------------------------
 
 if v:version < 600
