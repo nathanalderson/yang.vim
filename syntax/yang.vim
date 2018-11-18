@@ -43,8 +43,8 @@ syntax keyword yangStatement anyxml bit case choice container enum feature group
 syntax keyword yangStatement leaf leaf-list list notification prefix rpc typedef unique uses nextgroup=yangIdentifier skipwhite
 
 " other keywords
-syntax keyword yangOther add current delete deprecated max min not-supported
-syntax keyword yangOther obsolete replace system unbounded user
+syntax keyword yangKeyword add current delete deprecated max min not-supported
+syntax keyword yangKeyword obsolete replace system unbounded user
 
 " boolean constants (separated from the 'other keywords' for vim syntax purpose)
 syntax keyword yangBoolean true false
