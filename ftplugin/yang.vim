@@ -4,7 +4,12 @@ if exists('b:did_ftplugin')
 endif
 let b:did_ftplugin = 1
 
+setlocal commentstring=//%s
 setlocal include=^\\s*import
 setlocal suffixesadd=.yang
 
-let b:undo_ftplugin = 'setlocal include< suffixesadd<'
+" j is a fairly recent addition - silence warnings if it can't be set.
+setlocal formatoptions-=t formatoptions+=croql
+silent! setlocal formatoptions+=j
+
+let b:undo_ftplugin = 'setlocal commentstring< formatoptions< include< suffixesadd<'
