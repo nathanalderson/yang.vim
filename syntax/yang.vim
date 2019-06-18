@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language:     YANG
-" Remark:       RFC 6020 http://tools.ietf.org/html/rfc6020
+" Remark:       RFC 7950 http://tools.ietf.org/html/rfc7950
 " Author:       Matt Parker <mparker@computer.org>
 "------------------------------------------------------------------
 
@@ -10,44 +10,52 @@ elseif exists('b:current_syntax')
     finish
 endif
 
-" yang has keywords with a '-' in them
-setlocal iskeyword+=-
+" Enable block folding
+syntax region yangBlock start="{" end="}" fold transparent
+
+" YANG identifiers are made up of alphanumeric characters, digits,
+" underscores, hyphens, and dots.
+syntax iskeyword a-z,A-Z,48-57,_,-,.
+
+" An identifier looks like [prefix:]identifier
+syntax match yangIdentifier /\<\(\h\k*:\)\?\h\k*\>/
 
 " keywords are case-sensitive
 syntax case match
 
-" enable block folding
-syntax region yangBlock start="{" end="}" fold transparent
-
-
 " built-in types (section 4.2.4)
-syntax keyword yangType decimal64 int8 int16 int32 int64 uint8 uint16 uint32 uint64
-syntax keyword yangType string boolean enumeration bits binary leafref identityref empty instance-identifier
-
-syntax match yangIdentifier /\c\<\h\+[A-Za-z0-9_-]*\>/
-
-" identifiers must not begin with 'xml'. this rule must be defined after the previous yangIdentifier to work properly.
-syntax match yangBadIdentifier /\c\<xml\(\h\+[A-Za-z0-9_-]\)*\>/
+syntax keyword yangType binary bits boolean decimal64 empty enumeration identityref
+syntax keyword yangType instance-identifier int8 int16 int32 int64 leafref string
+syntax keyword yangType uint8 uint16 uint32 uint64 union
 
 " statement keywords
-syntax keyword yangStatement argument augment base belongs-to
-syntax keyword yangStatement config contact default description error-app-tag error-message
-syntax keyword yangStatement extension deviation deviate fraction-digits
-syntax keyword yangStatement include input key length
-syntax keyword yangStatement list mandatory max-elements min-elements module must namespace
-syntax keyword yangStatement ordered-by organization output path pattern position
-syntax keyword yangStatement presence range reference refine require-instance revision
-syntax keyword yangStatement revision-date status submodule type
-syntax keyword yangStatement units value when yang-version yin-element
-syntax keyword yangStatement anyxml bit case choice container enum feature grouping identity import nextgroup=yangIdentifier skipwhite
-syntax keyword yangStatement leaf leaf-list list notification prefix rpc typedef unique uses nextgroup=yangIdentifier skipwhite
+syntax keyword yangStatement augment config deviate deviation fraction-digits input
+syntax keyword yangStatement length mandatory max-elements min-elements modifier
+syntax keyword yangStatement must namespace ordered-by output pattern position range
+syntax keyword yangStatement refine require-instance revision revision-date status
+syntax keyword yangStatement unique units value when yang-version yin-element
+
+syntax keyword yangStatement action anydata anyxml argument base nextgroup=yangIdentifier skipwhite
+syntax keyword yangStatement belongs-to bit case choice contact nextgroup=yangIdentifier skipwhite
+syntax keyword yangStatement container default description enum nextgroup=yangIdentifier skipwhite
+syntax keyword yangStatement error-app-tag error-message extension nextgroup=yangIdentifier skipwhite
+syntax keyword yangStatement feature grouping identity import include nextgroup=yangIdentifier skipwhite
+syntax keyword yangStatement key leaf leaf-list list module nextgroup=yangIdentifier skipwhite
+syntax keyword yangStatement notification organization path prefix nextgroup=yangIdentifier skipwhite
+syntax keyword yangStatement presence reference rpc submodule typedef nextgroup=yangIdentifier skipwhite
+syntax keyword yangStatement uses nextgroup=yangIdentifier skipwhite
+
+syntax keyword yangStatement type nextgroup=yangType,yangIdentifier skipwhite
 
 " other keywords
-syntax keyword yangKeyword add current delete deprecated max min not-supported
+syntax keyword yangKeyword add current delete deprecated invert-match max min not-supported
 syntax keyword yangKeyword obsolete replace system unbounded user
 
-" boolean constants (separated from the 'other keywords' for vim syntax purpose)
+" boolean constants (separated from the 'other keywords' for vim syntax purposes)
 syntax keyword yangBoolean true false
+
+" operators (separated from the 'other keywords' for vim syntax purposes)
+syntax keyword yangOperator and or not
 
 " if-feature (separated from 'statement keywords' for vim syntax purposes)
 syntax keyword yangConditional if-feature
@@ -75,19 +83,18 @@ syntax match yangNumber "\<0x\x\+\>"
 " and now for the highlighting
 
 " things with one-to-one mapping
-highlight def link yangBadIdentifier Error
-highlight def link yangIdentifier Identifier
-highlight def link yangString String
-highlight def link yangComment Comment
-highlight def link yangNumber Number
 highlight def link yangBoolean Boolean
+highlight def link yangComment Comment
 highlight def link yangConditional Conditional
-highlight def link yangType Type
+highlight def link yangIdentifier Identifier
 highlight def link yangKeyword Keyword
+highlight def link yangNumber Number
+highlight def link yangOperator Operator
 highlight def link yangStatement Statement
+highlight def link yangString String
+highlight def link yangType Type
 
 " arbitrary mappings
-highlight def link yangModule Type
 highlight def link yangDateArg Special
 highlight def link yangLengthArg Special
 
