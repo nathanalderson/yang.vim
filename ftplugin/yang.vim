@@ -13,3 +13,8 @@ setlocal formatoptions-=t formatoptions+=croql
 silent! setlocal formatoptions+=j
 
 let b:undo_ftplugin = 'setlocal commentstring< formatoptions< include< suffixesadd<'
+
+if !has('patch-7.4.1142')
+    setlocal iskeyword+=-
+    let b:undo_ftplugin .= ' iskeyword<'
+endif
