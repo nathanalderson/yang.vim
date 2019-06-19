@@ -13,9 +13,11 @@ endif
 " Enable block folding
 syntax region yangBlock start="{" end="}" fold transparent
 
-" YANG identifiers are made up of alphanumeric characters, digits,
-" underscores, hyphens, and dots.
-syntax iskeyword a-z,A-Z,48-57,_,-,.
+" YANG identifiers are made up of alphanumeric characters, underscores,
+" hyphens, and dots.
+if has('patch-7.4.1142')
+    syntax iskeyword a-z,A-Z,48-57,_,-,.
+endif
 
 " An identifier looks like [prefix:]identifier
 syntax match yangIdentifier /\<\(\h\k*:\)\?\h\k*\>/
