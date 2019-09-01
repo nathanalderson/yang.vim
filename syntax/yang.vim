@@ -63,12 +63,12 @@ syntax keyword yangOperator and or not
 syntax keyword yangConditional if-feature
 
 " comments
-syntax region yangComment start="/\*" end="\*/"
-syntax region yangComment start="//" end="$"
+syntax region yangComment start="/\*" end="\*/" contains=@Spell
+syntax region yangComment start="//" end="$" contains=@Spell
 
 " strings
-syntax region yangString start=+"+ skip=+\\"+ end=+"+
-syntax region yangString start=+'+ end=+'+
+syntax region yangString start=+"+ skip=+\\"+ end=+"+ contains=@Spell
+syntax region yangString start=+'+ end=+'+ contains=@Spell
 
 " dates
 syntax match yangDateArg /"\=\<\d\{4}-\d\{2}-\d\{2}\>"\=/
