@@ -63,8 +63,8 @@ syntax keyword yangOperator and or not
 syntax keyword yangConditional if-feature
 
 " comments
-syntax region yangComment start="/\*" end="\*/"
-syntax region yangComment start="//" end="$"
+syntax region yangComment start="/\*" end="\*/" contains=@Spell
+syntax region yangComment start="//" end="$" contains=@Spell
 
 " strings
 syntax region yangString start=+"+ skip=+\\"+ end=+"+
