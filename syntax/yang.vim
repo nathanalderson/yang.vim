@@ -10,6 +10,9 @@ elseif exists('b:current_syntax')
     finish
 endif
 
+let s:cpo_save = &cpoptions
+set cpoptions&vim
+
 " Enable block folding
 syntax region yangBlock start="{" end="}" fold transparent
 
@@ -67,7 +70,7 @@ syntax region yangComment start="/\*" end="\*/" contains=@Spell
 syntax region yangComment start="//" end="$" contains=@Spell
 
 " strings
-syntax region yangString start=+"+ skip=+\\"+ end=+"+ contains=@Spell
+syntax region yangString start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=@Spell
 syntax region yangString start=+'+ end=+'+ contains=@Spell
 
 " dates
@@ -104,3 +107,6 @@ highlight def link yangLengthArg Special
 syntax sync match yangSync grouphere NONE '}$'
 
 let b:current_syntax = 'yang'
+
+let &cpoptions = s:cpo_save
+unlet s:cpo_save
